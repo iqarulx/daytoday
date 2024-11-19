@@ -11,9 +11,8 @@ import 'initiateaccount.dart';
 
 class Initiateprofile extends StatefulWidget {
   final String profileName;
-  final File imageFile;
-  const Initiateprofile(
-      {super.key, required this.profileName, required this.imageFile});
+  final File? imageFile;
+  const Initiateprofile({super.key, required this.profileName, this.imageFile});
 
   @override
   State<Initiateprofile> createState() => _InitiateprofileState();
@@ -80,34 +79,43 @@ class _InitiateprofileState extends State<Initiateprofile> {
   }
 
   submitEvent() async {
-    if (profileName.isNotEmpty) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => InitiateAccount(
-            profileName: profileName,
-            profilePurpose: profilePurpose,
-            information: information,
-            image: imageFile!,
-          ),
-        ),
-      );
-    } else {
-      if (profileName.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.red,
-            content: Text("Profile Name Is Must"),
+    if (imageFile != null) {
+      if (profileName.isNotEmpty) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => InitiateAccount(
+              profileName: profileName,
+              profilePurpose: profilePurpose,
+              information: information,
+              image: imageFile!,
+            ),
           ),
         );
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.red,
-            content: Text("Profile Image Is Must"),
-          ),
-        );
+        if (profileName.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: Colors.red,
+              content: Text("Profile Name Is Must"),
+            ),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: Colors.red,
+              content: Text("Profile Image Is Must"),
+            ),
+          );
+        }
       }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.red,
+          content: Text("Please select profile image to countinue"),
+        ),
+      );
     }
   }
 

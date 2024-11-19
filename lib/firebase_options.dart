@@ -51,20 +51,21 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCxYYHbv7nwf_wGTnMnibkBWLb3Wk0qet4',
-    appId: '1:869770397358:android:d4ebe5c0d372cfa6208f3f',
+    appId: '1:869770397358:android:d456a3458c235e14208f3f',
     messagingSenderId: '869770397358',
     projectId: 'sri-softwarez-daytoday',
-    storageBucket: 'sri-softwarez-daytoday.appspot.com',
+    storageBucket: 'sri-softwarez-daytoday.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDD60Ds3jm1cI7ja2OMWgYtXK4sD7c6QSY',
-    appId: '1:869770397358:ios:2a570b8cb9bd6098208f3f',
+    appId: '1:869770397358:ios:09d286ab8a1b7352208f3f',
     messagingSenderId: '869770397358',
     projectId: 'sri-softwarez-daytoday',
-    storageBucket: 'sri-softwarez-daytoday.appspot.com',
+    storageBucket: 'sri-softwarez-daytoday.firebasestorage.app',
     androidClientId: '869770397358-c6tv6t1mcsbp7e9651gvp2djrm2uui3n.apps.googleusercontent.com',
     iosClientId: '869770397358-2aokoo8k1v353pt32uk2t7d0ntclgoq7.apps.googleusercontent.com',
     iosBundleId: 'com.srisoftwarez.daytoday',
   );
+
 }

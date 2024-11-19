@@ -14,6 +14,7 @@ import 'package:http/http.dart' as http;
 import 'dart:io' as io;
 
 import 'initiateprofile.dart';
+import 'siginin_with_mail.dart';
 
 class SigninGoogle extends StatefulWidget {
   const SigninGoogle({super.key});
@@ -60,10 +61,11 @@ class _SigninGoogleState extends State<SigninGoogle> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Initiateprofile(
-                        profileName: user.displayName!,
-                        imageFile: photo!,
-                      )),
+                builder: (context) => Initiateprofile(
+                  profileName: user.displayName!,
+                  imageFile: photo!,
+                ),
+              ),
             );
           }
         }
@@ -150,7 +152,33 @@ class _SigninGoogleState extends State<SigninGoogle> {
                     signInWithGoogle();
                   },
                   child: const Text(
-                    "SIGNIN",
+                    "Sign in",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const Center(child: Text("OR")),
+              const SizedBox(
+                height: 5,
+              ),
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const SigininWithMail();
+                    }));
+                  },
+                  child: const Text(
+                    "Signin With Mail",
                     style: TextStyle(
                       color: Colors.white,
                     ),
